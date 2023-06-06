@@ -43,31 +43,43 @@ d3.json(url).then(function(data) {
 
      // Function to determine the color based on depth
 function chooseColor(depth) {
-    if (depth > 90) return "red";
-    else if (depth > 70) return "orange";
-    else if (depth > 50 ) return "pink";
-    else if (depth > 30) return "yellow";
-    else if (depth > 10) return "green";
-    else return "lime";
+    if (depth > 90) return "#EA2C2C";
+    else if (depth > 70) return "#EA822C";
+    else if (depth > 50 ) return "#EE9C00";
+    else if (depth > 30) return "#EECC00";
+    else if (depth > 10) return "#D4EE00";
+    else return  "#98EE00";
 };
+
 
     // Create a legend
 let legend = L.control({ position: 'bottomright' });
-    legend.onAdd = function(map) {
+    legend.onAdd = function() {
       let div = L.DomUtil.create('div', 'info legend');
-      let depths = [0, 10, 30, 50, 70, 90];
-      let labels = [];
-      let colors = chooseColor;
-  
-      // Loop through the depth intervals and generate a label with a colored square for each interval
+      let depths = [-10, 10, 30, 50, 70, 90];
+    //   let labels = [];
+      let colors = [
+        "#98EE00",
+        "#D4EE00",
+        "#EECC00",
+        "#EE9C00",
+        "#EA822C",
+        "#EA2C2C"];
+
+        //  Loop through the depth intervals and generate a label with a colored square for each interval
       for (let i = 0; i < depths.length; i++) {
-        div.innerHTML +=
-          '<i style="background:' + chooseColor(depths[i] + 1) + '"></i> ' +
-          depths[i] + (depths[i + 1] ? '&ndash;' + depths[i + 1] + '<br>' : '+');
-      }
-      return div;
-    };
-    legend.addTo(myMap);
+        div.innerHTML += "<i style='background: "
+        + colors[i]
+        + "'></i> "
+        + depths[i]
+        + (depths[i + 1] ? "&ndash;" + depths[i + 1] + "<br>" : "+");
+    }
+    return div;
+  };
+  // Add legend to the map.
+  legend.addTo(myMap);
+
 });
+  
 
 
