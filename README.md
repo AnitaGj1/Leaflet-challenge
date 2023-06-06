@@ -15,7 +15,7 @@ The USGS is interested in building a new set of tools that will allow them to vi
 ### 2. Import and visualize the data
 * Using Leaflet, create a map that plots all the earthquakes from your dataset based on their longitude and latitude. The data markers reflect the magnitude of the earthquake by their size and the depth of the earthquake by color. Earthquakes with higher magnitudes should appear larger, and earthquakes with greater depth should appear darker in color.
 * Create a legend that will provide context for the map data.
-
+> ### [Link to the map](https://anitagj1.github.io/Leaflet-challenge/)
 The following image is a screenshot of what I produced:
 
 ![alt text](https://github.com/AnitaGj1/Leaflet-challenge/blob/main/Images/USAMap.png)
